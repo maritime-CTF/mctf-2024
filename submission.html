@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+	Minimaxing by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Submission</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									<h1><a href="index.html" id="logo">Submitting Your Agents</a></h1>
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="rules.html">Rules</a>
+										<a href="installation.html">Installation</a>
+										<a href="training_agents.html">Training Agents</a>
+										<a href="submission.html" class="current-page-item">Submission</a>
+									</nav>
+								</header>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-12">
+
+								<section>
+									<h2>Submitting Agents</h2>
+									<p>Agents will be submitted via <a href="">codalab</a> submissions will not be accepted through any other platform. Users should first register for a free codalab account and navigate to the Maritime Capture the Flag competition <a href="https://codalab.lisn.upsaclay.fr/competitions/16369#learn_the_details">here</a>. Users should then click on the Participate tab then select submit/view results this is where you should drop your submission zip folder there is a specific formatting you must follow please see the section "formatting your submission" below.</a></p>
+								</section>
+
+								<section>
+									<h2>Formatting Your Submission</h2>
+									<p>Export the policies from saved your saved checkpoint:</p><p> &emsp;1.) python competition_export_policy.py &lt;path_to_saved_checkpoint&gt;</p> 
+									<p> &emsp;&emsp;&#x2022;  Example Usage: python competition_export_policy.py ./ray_test/checkpoint_000001/ </p> 
+									<p> &emsp;&emsp;&#x2022;  Outputs two individual saved policy folders into a “/rl_test/policies/” directory</p>
+<p>&emsp;2.) Select and zip your solution.py and the policy checkpoints your submission uses. DO NOT USE tar, gzip, or any other compressed folder format.</p>
+<p>&emsp;3.) Submit zip file via An example of how to format a submission entry is given in the zip file at rl_test/example_competition_submission.zip.</p><p> The competition code is currently set up to allow for training using RLlib. If you would like to use different reinforcement learning library, contact the competition organizers through challenge.gov and we can work to get your requested dependencies included into the competition.</p>
+								</section>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div class="container">
+						
+					
+						<div class="row">
+							<div class="col-12">
+
+								<div id="copyright">
+									&copy; John Kliem. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

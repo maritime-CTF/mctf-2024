@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<!--
+	Minimaxing by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Competition Rules</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									<h1><a href="index.html" id="logo">Competition Rules</a></h1>
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="rules.html" class="current-page-item">Rules</a>
+										<a href="installation.html">Installation</a>
+										<a href="training_agents.html">Training Agents</a>
+										<a href="submission.html">Submission</a>
+									</nav>
+								</header>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-12">
+
+								<section>
+									<h2>Competition Description</h2>
+									
+									<p>Capture the Flag is a commonly-played team-game involving two opposing teams playing within a bounded playing field. The field is divided into two halves, one for each team; each team has a flag located inside their respective half. The objective of each team is to score points by capturing the opponent’s' flag, while not accruing negative points by preventing its own flag from being captured by the opponent’s team. The game ends after a certain, pre-determined duration. In this challenge, we consider a Maritime Capture-the-Flag (MCTF) game where the players are autonomous marine vehicles. The main features and events in the MCTF game are described below:</p>
+									<h2> Playing Field </h2>
+									<p>A rectanglular area measuring 160-meters by 80-meters and divided into two, 80-meter halves, one for each team.</p>
+									<img src="./images/game_field.jpg" width="450">
+									<h2> Home Base </h2>
+									<p>The home base of a team is a 10-meter diameter circular area inside the team's half which contains the team's flag at its center.</p>
+									<img src="./images/home_base_visual.png" width="450">
+									<h2> Tag </h2>
+									<p>A player can get tagged in two ways:</p>
+										<p>&emsp;&#x2022; If it is in its opponent's half and within 10-meters of an opponent player.</p>
+										<video width="450" controls>
+											<source src="./videos/tag.mp4" type="video/mp4">
+										</video>
+										<p>&emsp;&#x2022; If it goes outside of the boundary of the playing field.</p>
+										<video width="450" controls>
+											<source src="./videos/oob_tag.mp4" type="video/mp4">
+										</video>
+										<p></p>
+									<h2> Flag Grab </h2>
+									<p>A flag grab occurs when a player enters its opponent team’s home base in an untagged state, and the opponent’s flag is still at the home base. </p>
+									<video width="450" controls>
+											<source src="./videos/flag_grab.mp4" type="video/mp4">
+										</video>
+										<p></p>
+									<h2> Flag Capture </h2>
+									<p>A flag capture occurs when a player returns to its home base after grabbing its has an opponent’s flag.</p>
+									<video width="450" controls>
+											<source src="./videos/opponent_flag_capture.mp4" type="video/mp4">
+										</video>
+										<p></p>
+									<h2> Untagging </h2>
+									<p>A player that has been tagged (either by an opponent or by going out of bounds) can get untagged by returning to its team’s home base. Players that are in a tagged state, are not able to tag opponents, grab or capture the opponent’s flag. If a player gets tagged the game arbitrator will automatically take over the agents controls and drive it back to their teams home base.</p>
+									
+									<h2> Game Duration </h2>
+									<p>Each game will last for a total of 10 minutes</p>
+
+									<h2> Score Calculations </h2>
+									<p>Each game will last for a total of 10 minutes</p>
+									<p>&emsp;1. Primary Score = Number_of_Team_Flag_Captures - Number_of_Opponent_Flag_Captures - Number_of_Team_Collisions</p>
+									<p>&emsp;2. If there is a tie on the primary score, then the following score is used for tie breaking: (Number_of_Team_Flag_Grabs + Number_of_Team_Tags) - (Number_of_Opponent_Flag_Grabs + Number_of_opponent_Tags).</p>
+								</section>
+								
+								<section>
+									<h2>Eligibility Requirements</h2>
+									<p>You are eligible to register and compete in this challenge only if you meet all of the following requirements: </p>
+										<p>&emsp;1. You agree to the rules outlined within the challenge. Any participant who submits materials for consideration implicitly agrees to the rules outlined within the challenge. </p>
+										<p>&emsp;2. You are 18 years of age or older. </p>
+										<p>&emsp;3. regulations included in the OFAC (Office of Foreign Assets Control) <a href="http://www.treasury.gov/resource-center/sanctions/Programs/Pages/Programs.aspx">sanction page</a>. Residents of these countries/regions that are non-government employees are eligible to participate.  </p>
+										<p>&emsp;4. You are currently not listed on the U.S. Statutory Debarment <a href="https://www.pmddtc.state.gov/ddtc_public/ddtc_public?id=ddtc_kb_article_page&sys_id=c22d1833dbb8d300d0a370131f9619f0#sideNav">List</a> DDTC(Directorate of Defense Trade Controls). </p>
+									<p>If you are a federal entity or Federal employee, you may participate in the challenge. Participants must be registered as mutually exclusive teams. Each team is allowed to submit only one single final entry. We are not responsible for entries that we do not receive for any reason, or for entries that we receive but result in an error during execution. </p>
+									<h2>Results of the Challenge</h2>
+									<p>A leaderboard will be maintained on the <a href="index.html">homepage</a>, and on challenge.gov which will reflect both phase 1 and phase 2 of the competition. This Challenge does not in any way obligate the organizers: U. S. Naval Research Laboratory, the Department of the Navy, United States Military Academy, the Department of the Army, or Massachusetts Institute of Technology Lincoln Labs to procure any of the items within the scope of this Challenge from any submitters, including the winners.  </p>
+									<h2>Release of Claims</h2>
+									<p>The Submitter agrees to release and forever discharge any and all manner of claims, equitable adjustments, actions, suits, debts, appeals, and all other obligations of any kind, whether past or present, known or unknown, that have or may arise from, are related to or are in connection with, directly or indirectly, this Challenge or the Submitter’s submission. </p>
+									<h2>Compliance with Laws</h2>
+									<p>The Submitter agrees to follow and comply with all applicable federal, state, and local laws, regulations, and policies. </p>
+									<h2>Governing Law</h2>
+									<p>This Challenge is subject to all applicable federal laws and regulations. ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS WILL BE GOVERNED BY THE FEDERAL LAWS AND REGULATIONS OF THE UNITED STATES OF AMERICA. </p>
+									<h2>Limits on Exchanges</h2>
+									<p>Government personnel involved in the MCTF Challenge shall not engage in conduct that favors one competitor over another to ensure all competitors have equal opportunity and access to resources. </p>
+								</section>
+								<section>
+									<h2>Disqualification</h2>
+									<p>We reserve the right to disqualify any submission we deem ineligible to compete. An entry can be deemed ineligible for failing to comply with rules or eligibility requirements. Additionally, no participant(s) is allowed to create more than one account to participate in this challenge. Any violations of this rule by a participant(s) will result in disqualification of all entries submitted by the participant(s).</p>
+								</section>
+								<section>
+									<h2>Prize</h2>
+									<p>There is no monetary or non-monetary prize for achieving first place or participating in this competition. </p>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div class="container">
+						
+						<div class="row">
+							<div class="col-12">
+
+								<div id="copyright">
+									&copy; John Kliem. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

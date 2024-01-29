@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Minimaxing by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Installation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									<h1><a href="index.html" id="logo">Software Installation Guide</a></h1>
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="rules.html">Rules</a>
+										<a href="installation.html" class="current-page-item">Installation</a>
+										<a href="training_agents.html">Training Agents</a>
+										<a href="submission.html">Submission</a>
+									</nav>
+								</header>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-12">
+
+								<section>
+									<h2>MCTF Competition Software Download and Setup</h2>
+									<p>To get started download the <a href="https://github.com/mit-ll-trusted-autonomy/pyquaticus/tree/main">Pyquaticus</a> software from the link given below and install it following the insturctions in the README.md file: <a href="https://github.com/mit-ll-trusted-autonomy/pyquaticus/tree/main">link</a></p>
+									<h2>Setting up a python virtual environment</h2>
+									<h3>Using Miniconda (Recomended Method)</h3>
+									<p>&emsp;1. Install Miniconda <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a></p>
+									<p>&emsp;2. Navigate into the git repository in the terminal</p>
+									<p>&emsp;3. Run <code>'./setup-conda-env.sh light'</code>(Light installs just the environment) or './setup-conda-env.sh full' (Recomended includes rllib for Deep Reinforcement Leanring)</p>
+									<p>Congratualations you should now have installed pyquaticus now you can begin training!</p>
+									<h3>Using Python Virutal Environment</h3>
+									<p>&emsp;1. In the terminal run <code>python3.10 -m venv &lt;name&gt;</code></p>
+									<p>&emsp;2. To activate the environment run <code>'source ./&lt;name&gt;/bin/activate'</code></p>
+									<p>&emsp;3. Navigate into the pyquaticus git repository in the terminal</p>
+									<p>&emsp;4. To install pyquaticus run <code>'pip install -e .[torch]'</code></p>
+									<p>&emsp;5. To install rllib run <code>'pip install ray[rllib]==2.4.0'</code></p>
+									<p>&emsp;6. Install gymnasium run <code>'pip install gymnasium==0.28.1'</code></p>
+									<p>Note if you are having trouble installing the packages try installing using <code>'python -m pip install &lt;package name&gt;'</code></p>
+								</section>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<div id="copyright">
+									&copy; John Kliem. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

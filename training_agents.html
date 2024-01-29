@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<!--
+	Minimaxing by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Training Agents</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									<h1><a href="index.html" id="logo">Training Agents</a></h1>
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="rules.html">Rules</a>
+										<a href="installation.html">Installation</a>
+										<a href="training_agents.html" class="current-page-item">Training Agents</a>
+										<a href="submission.html">Submission</a>
+									</nav>
+								</header>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-12">
+
+								<section>
+									<h2>Training Your First Agent(s)</h2>
+									<p>The example code provided in the rl_test folder uses ray's rllib if you are unfamiliar with multiagent training through rllib we recomend reading some of there documentation <a href="https://docs.ray.io/en/latest/rllib/rllib-training.html">here</a>.</p>
+									<p>To run the program make sure your virtual environment is activate. Then run <code>'python competition_train_example.py'</code></p>
+									<p>The training script trains the models or policies for the two agents being trained and saves both models as checkpoint files into a folder named ray_tests/ in the same folder where the training script is run. The saved policies are located in the file: ray_tests/&lt;checkpoint_num&gt;/policies/&lt;policy-name&gt;. The rate at which models are saved is defined in <code>competition_train_example.py line:112</code> More information about the policy_name is given in the ‘Policy Mapping’ section below.
+								</section>
+								<section>
+									<h2>Policy Mapping Section</h2>
+									<p>Lets start off by looking at the competition_train_example.py file (in the rl_test folder)</p>
+									<p>Starting on line 86 we see the policy mapping function; this function is used by rllib trainer to ensure each agent is being correctly mapped to a learning policy or the intended static policy during the training phase. A code snippet can be viewed below:</p>
+									<p><script src="https://gist.github.com/john-kliem/84f804453da709c91587856da491e9c1.js"></script></p>
+									<p>You should modify the policies dictionary and the policy mapping function in a way that best supports your agent trainings!</p>
+								</section>
+								<section>
+									<h2>Rollout Workers</h2>
+									<p>Lets create a PPO algorithm to train our learning policies established in the 'Policy Mapping' section above. The following code snipped below is from <code>competition_train_example.py line: 102</code></p>
+									<p><script src="https://gist.github.com/john-kliem/861e41444386e5daee4119f95bc1d7f4.js"></script></p>
+									<p>You should modify this to reflect any changes you might have made to the policies, and policy mapping functions. It is also highly recomended to change the number of gpu resources and rollout workers this can drasticly decrease training times!</p>
+								</section>
+								<section>
+									<h2>Reward Function</h2>
+									<p>A critical component to training successfull agents is the designing of the reward function. This is particularly important in multiagent scenarios where we have to assign rewards to two agents who might be cooperatively completeing a tasks. To assist with this we have provided a few examples in the rewards.py file found in the utils folder(pyquaticus/envs/utils/rewards.py) Below is the complete list of available parameters along with a description:</p>
+									</p>
+									<p><script src="https://gist.github.com/john-kliem/9fe404d2f8c7c29c1e2c90e4fa93cc59.js"></script></p>
+									<p>You should read through the avaliable parameters the params, and prev_params that get passed into the reward functions which will be used to determine the game states and assign rewards to the your agents during the training period. Below we have included a sparse reward example:</p>
+									<p><script src="https://gist.github.com/john-kliem/9396f8f4f96bdd4ed9f875a400d763d0.js"></script></p>
+								</section>
+								<section>
+									<h2>Useful Configurations</h2>
+									<p>Changing values in the configuration file can help speed up training below we have a list of configuration values along with a breif description.</p>
+									</p>
+
+									<p><ul>
+										<li> world_size: [160.0,80.0]
+											<ul type="star">
+												<li>The size of the game field (recomended not to change this)</li>
+												<li>type: list (of floats x, y)</li>
+											</ul>
+										
+										<li>pixel_size: 10</li>
+										<ul>
+											<li>Pixels/meter</li>
+											<li>type: int</li>
+										</ul>
+										<li>agent_radius: 2.0</li>
+										<ul>
+											<li>Size of agent's radius in meters</li>
+											<li>type: float</li>
+										</ul>
+										<li>flag_keepout: 5.0</li>
+										<ul>
+											<li>Minimum distance, in meters, an agent can get to the flag centers without being repelled automatically</li>
+											<li>type: float</li>
+										</ul>
+										<li>max_speed: 1.5 
+										<ul>
+											<li>Max speed an agent can travel(Competition Speed is 1.5m/s)</li>
+											<li>type: float</li>
+										</ul>
+										</li>
+										<li>own_side_accel: 1.0
+										<ul>
+											<li>Percentage of max acceleration that can be used on your side of scrimmage (Recomended not to change this value)</li>
+											<li>type: float [0.0,1.0]</li>
+										</ul>
+										</li>
+										<li> opp_side_accel: 1.0
+											<ul>
+											<li>Percentage of max acceleration that can be used on your side of scrimmage [0.0,1.0] (Recomended not to change this value)</li>
+											<li>type: float</li>
+										</ul>
+										</li>
+										<li>wall_bounce: 0.5
+										<ul>
+											<li>Percentage of current speed (x or y) at which an agent is repelled from a wall (vertical or horizontal) </li>
+											<li>type: float [0.0,1.0]</li>
+										</ul>
+										</li>
+										<li>tau
+											<ul>
+											<li>Max dt (seconds) for updating the simulation (1/10) will be used for the competition</li>
+											<li>type: float</li>
+										</ul>
+										</li>sim_speedup_factor: 1
+										<ul>
+											<li>Simulation speed multiplier</li>
+											<li>type: int (>= 1)</li>
+										</ul>
+										<li>
+											<ul>max_time: 240.0
+											<li>Maximum time (seconds) per episode</li>
+											<li>type: float</li>
+										</ul>
+										</li>
+										<li> max_score: 1
+											<ul>
+											<li>Maximum score per episode (until a winner is declared)</li>
+											<li>type: int</li>
+										</ul>
+										</li>
+										<li>max_screen_size: (x, y)
+											<ul>
+											<li>Screen size pixels width by pixels height</li>
+											<li>type: list (ints)</li>
+										</ul>
+										</li>
+										<li>random_init: False
+											<ul>
+											<li>Randomly initialize agents' positions for ctf mode (within fairness constraints)</li>
+											<li>type: boolean</li>
+										</ul>
+										</li>
+										<li>save_traj: False
+											<ul>
+											<li>Save trajectory as a pickle (useful for behavior cloning or imitation leanring)</li>
+											<li>type: boolean</li>
+										</ul>
+										</li>
+										<li>render_fps: 30
+											<ul>
+											<li>Frames per second when rendering with 'human' passed in</li>
+											<li>type: int</li>
+										</ul>
+										</li>
+										<li>normalize: True
+											<ul>
+											<li>Flag for normalizing the observation space</li>
+											<li>type: boolean</li>
+										</ul>
+										</li>
+										<li>tagging_cooldown: 10.0
+											<ul>
+											<li>Time (seconds) cooldown before an agent is able to tag again</li>
+											<li>type: float</li>
+										</ul>
+										</li>
+										<li>speed_factor: 20.0
+											<ul>
+											<li>Multiplicative factor for desired_speed -> desired thrust (Will be set to 20.0 for competition)</li>
+											<li>type: float</li>
+										</ul>
+										</li>
+										<li>thrurst_map: [[-100, 0, 20, 40, 60, 80, 100], [-2, 0, 1, 2, 3, 5, 5]]
+											<ul>
+											<li>Piecewise linear mapping from desired_thrust to speed</li>
+											<li>type: list</li>
+										</ul>
+										</li>
+										</li>
+										<li>max_thrust: 70
+											<ul>
+											<li>Limit on vehicle thrust</li>
+											<li>type: int</li>
+											<li>Competition Setting: 70.0</li>
+										</ul>
+										</li>
+										</li>
+										<li>max_rudder: 100
+											<ul>
+											<li>Limit on vehicle rudder actuation</li>
+											<li>type: int</li>
+											<li>Competition Setting: 100</li>
+										</ul>
+										</li>
+										</li>
+										<li>turn_loss: 0.85
+											<ul>
+											<li></li>
+											<li>type: float</li>
+											<li>Competition Setting: 0.85</li>
+										</ul>
+										</li>
+										</li>
+										<li>max_acc: 1
+											<ul>
+											<li>Maximum acceleration (m / S**2)</li>
+											<li>type: float</li>
+											<li>Competition Setting: 1</li>
+										</ul>
+										</li>
+										</li>
+										<li>max_dec: 1
+											<ul>
+											<li>Maximum deceleration (m / S**2)</li>
+											<li>type: float</li>
+											<li>Competition Setting: 1</li>
+										</ul>
+										</li>
+										<li>suppress_numpy_warnings: True
+											<ul>
+											<li>Option to stop numpy from printing warnings to the console</li>
+											<li>type: boolean</li>
+											<li>Competition Setting: True</li>
+										</ul>
+										</li>
+										<li>teleport_on_tag: False
+											<ul>
+											<li>Option for the agent when tagged, either out of bounds or by opponent, to teleport home or not (Setting this to True when training can speed up training times)</li>
+											<li>type: boolean</li>
+											<li>Competition Setting: False </li>
+										</ul>
+										</li>
+										
+									</ul></p>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<div class="container">
+						
+						<div class="row">
+							<div class="col-12">
+
+								<div id="copyright">
+									&copy; John Kliem. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
