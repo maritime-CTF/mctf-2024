@@ -46,13 +46,23 @@
 									<h2>Submitting Agents</h2>
 									<p>Agents will be submitted via <a href="">codalab</a> submissions will not be accepted through any other platform. Users should first register for a free codalab account and navigate to the Maritime Capture the Flag competition <a href="https://codalab.lisn.upsaclay.fr/competitions/16369#learn_the_details">here</a>. Users should then click on the Participate tab then select submit/view results this is where you should drop your submission zip folder there is a specific formatting you must follow please see the section "formatting your submission" below.</a></p>
 								</section>
-
+								<section>
+									<h2>Solution.py Formatting</h2>
+									<p>Before you load in your policy make sure to seperate the policy from the rllib checkpoint see "Formatting Your Submission" 1.)</p>
+									<p><script src="https://gist.github.com/maritime-CTF/7e70b4162523aee6d82d881a6b8ca31f.js"></script></p>
+								</section>
+								<section>
+									<h2>Report</h2>
+									<p> &emsp;&#x2022; Explanation of algorithms, hyperparameters that were used in final solution.</p> 
+									<p> &emsp;&#x2022; Explanation of how agents were trained (i.e.) what opponents were used in training how long were agents trained for, and compute used to train your team of agents.</p> 
+									
+								</section>
 								<section>
 									<h2>Formatting Your Submission</h2>
 									<p>Export the policies from saved your saved checkpoint:</p><p> &emsp;1.) python competition_export_policy.py &lt;path_to_saved_checkpoint&gt;</p> 
 									<p> &emsp;&emsp;&#x2022;  Example Usage: python competition_export_policy.py ./ray_test/checkpoint_000001/ </p> 
 									<p> &emsp;&emsp;&#x2022;  Outputs two individual saved policy folders into a “/rl_test/policies/” directory</p>
-<p>&emsp;2.) Select and zip your solution.py and the policy checkpoints your submission uses. DO NOT USE tar, gzip, or any other compressed folder format.</p>
+<p>&emsp;2.) Select and zip your solution.py and the policy checkpoints your submission uses along with the report. DO NOT USE tar, gzip, or any other compressed folder format.</p>
 <p>&emsp;3.) Submit zip file via An example of how to format a submission entry is given in the zip file at rl_test/example_competition_submission.zip.</p><p> The competition code is currently set up to allow for training using RLlib. If you would like to use different reinforcement learning library, contact the competition organizers through challenge.gov and we can work to get your requested dependencies included into the competition.</p>
 								</section>
 
